@@ -66,6 +66,9 @@ dependencies {
     //Coroutines
     implementation 'org.jetbrains.kotlinx:kotlinx-coroutines-android:1.4.3'
 
+    // Debug DB
+    debugImplementation 'com.amitshekhar.android:debug-db:1.0.6'
+
 
     implementation 'com.google.dagger:dagger:2.35.1'
     kapt 'com.google.dagger:dagger-compiler:2.27'

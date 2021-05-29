@@ -1,5 +1,4 @@
 package `in`.fundsindia.interviewsample.ui
-
 import `in`.fundsindia.interviewsample.FundsIndiaApplication
 import `in`.fundsindia.interviewsample.R
 import android.os.Bundle
@@ -10,6 +9,7 @@ import androidx.navigation.findNavController
 import androidx.navigation.ui.AppBarConfiguration
 import androidx.navigation.ui.setupActionBarWithNavController
 import androidx.navigation.ui.setupWithNavController
+import com.amitshekhar.DebugDB
 import javax.inject.Inject
 
 class MainActivity : AppCompatActivity() {
@@ -31,7 +31,9 @@ class MainActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
 
-      Log.d(TAG,"mainViewModel "+mainViewModel)
+
+
+        Log.d(TAG,"mainViewModel "+mainViewModel+ " Debug DB  "+DebugDB.getAddressLog())
 
         val navView: BottomNavigationView = findViewById(R.id.nav_view)
 

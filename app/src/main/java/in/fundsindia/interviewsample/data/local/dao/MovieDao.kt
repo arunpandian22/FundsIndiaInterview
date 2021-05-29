@@ -13,7 +13,7 @@ interface MovieDao {
 
 
     @Insert(onConflict = OnConflictStrategy.IGNORE)
-    fun loadAll(vararg movies: MutableList<Movie>)
+    fun loadAll( movies: MutableList<Movie>)
 
 
     @Query("SELECT * FROM Movie WHERE title LIKE '%' || :search || '%'")

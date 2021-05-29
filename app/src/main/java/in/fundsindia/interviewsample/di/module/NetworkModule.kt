@@ -1,6 +1,9 @@
 package `in`.fundsindia.interviewsample.di.module
+import `in`.fundsindia.interviewsample.data.local.AppDatabase
 import `in`.fundsindia.interviewsample.data.remote.ApiService
+import `in`.fundsindia.interviewsample.data.repositoryImpl.MovieDBRepositoryImpl
 import `in`.fundsindia.interviewsample.data.repositoryImpl.MovieRemoteRepositoryImpl
+import `in`.fundsindia.interviewsample.domain.repository.MovieDBRepository
 import `in`.fundsindia.interviewsample.domain.repository.MovieRepository
 import android.util.Log
 import com.google.gson.Gson
@@ -201,6 +204,17 @@ class NetworkModule {
     fun provideCloudRepository(apIs: ApiService): MovieRepository {
         return MovieRemoteRepositoryImpl(apIs)
     }
+
+    @Singleton
+    @Provides
+    fun provideMovieDBRepository(appDateBase: AppDatabase): MovieDBRepository {
+        return MovieDBRepositoryImpl(appDateBase)
+    }
+
+//    @Provides
+//    fun provideMovieDBRepository(appDateBase: AppDatabase): MovieDBRepository {
+//        return MovieDBRepositoryImpl(appDateBase)
+//    }
 
 
 }

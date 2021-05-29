@@ -1,6 +1,5 @@
 package `in`.fundsindia.interviewsample.domain.model.response
 
-import Movie
 import com.google.gson.annotations.SerializedName
 
 data class MovieListResponse(
