@@ -12,7 +12,7 @@ import javax.inject.Inject
 class SearchMoviesUsecase @Inject constructor(private  val movieDBRepository: MovieDBRepository) : BaseDbUsecase<String, MutableList<Movie>>()
 {
     override suspend fun executeOnBackground(request: String): MutableList<Movie> {
-       return movieDBRepository.searchMovies("a")
+       return movieDBRepository.searchMovies(""+request)
     }
 
 }

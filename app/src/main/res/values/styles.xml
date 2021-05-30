@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <style name="searchViewStyle" parent="Widget.AppCompat.SearchView">
+        <item name="iconifiedByDefault">false</item>
+        <item name="colorControlActivated">#FFffffff</item>
+    </style>
+</resources>

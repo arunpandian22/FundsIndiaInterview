@@ -21,10 +21,8 @@ class HomeViewModel @Inject constructor(
     val movieListResponse: MutableLiveData<MovieListResponse> by lazy { MutableLiveData<MovieListResponse>() }
     val error: MutableLiveData<ErrorModel> by lazy { MutableLiveData<ErrorModel>() }
 
-        private val _text = MutableLiveData<String>().apply {
-        value = "This is home Fragment"
-    }
-    val text: LiveData<String> = _text
+
+
 
     fun getMovies(page:Int){
         movieUseCase.execute(MoviesRequest("8a03975d504c762ab63b6c5fa98e3c17","en-US",""+page)) {

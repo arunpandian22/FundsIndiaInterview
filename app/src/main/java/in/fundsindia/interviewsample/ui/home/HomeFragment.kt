@@ -12,6 +12,7 @@ import `in`.fundsindia.interviewsample.utils.pagination.PaginationListener
 import `in`.fundsindia.interviewsample.utils.pagination.PaginationListener.Companion.PAGE_START
 import android.content.Context
 import android.util.Log
+import androidx.appcompat.widget.Toolbar
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import javax.inject.Inject
@@ -21,11 +22,13 @@ class HomeFragment : Fragment() {
      lateinit var homeViewModel: HomeViewModel
     var TAG="HomeFragment"
     lateinit var rvMovies :RecyclerView
+    lateinit var tbHome :Toolbar
     lateinit var movieRVlayoutManager: LinearLayoutManager
     private var currentPage: Int = PAGE_START
     private var isLastPageHere = false
     lateinit var rvMovieAddapter: RvMovieAdapter
     private var isLoadingHere = false
+
 
 
 
@@ -44,6 +47,8 @@ class HomeFragment : Fragment() {
 
         val root = inflater.inflate(R.layout.fragment_home, container, false)
         rvMovies  = root.findViewById(R.id.rvMovieList)
+        tbHome  = root.findViewById(R.id.tbHome)
+        tbHome.title = "Home"
 
         return root
     }
@@ -56,8 +61,10 @@ class HomeFragment : Fragment() {
         homeViewModel.movieListResponse.observe(viewLifecycleOwner,{
 
             var movieList: ArrayList<Movie> = it.results as ArrayList<Movie>
-            if (currentPage == 1)
-            rvMovieAddapter.movieList = movieList
+            if (currentPage == 1) {
+                rvMovieAddapter.movieList = movieList
+                homeViewModel.insertMovies(movieList)
+            }
             else
                 rvMovieAddapter.movieList.addAll(movieList)
 
@@ -98,7 +105,6 @@ class HomeFragment : Fragment() {
                 Log.d(TAG, "do more API call:" + currentPage )
 //                doApiCall();
                 homeViewModel.getMovies(currentPage)
-
 
             }
 
