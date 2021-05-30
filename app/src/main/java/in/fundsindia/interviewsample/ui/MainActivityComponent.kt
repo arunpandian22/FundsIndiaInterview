@@ -1,7 +1,7 @@
 package `in`.fundsindia.interviewsample.ui
 
 import `in`.fundsindia.interviewsample.di.qualifier.ActivityScope
-import `in`.fundsindia.interviewsample.ui.dashboard.SearchFragment
+import `in`.fundsindia.interviewsample.ui.search.SearchFragment
 import `in`.fundsindia.interviewsample.ui.home.HomeFragment
 import dagger.Subcomponent
 

@@ -1,6 +1,6 @@
 package `in`.fundsindia.interviewsample.di.module
 import `in`.fundsindia.interviewsample.di.qualifier.ViewModelKey
-import `in`.fundsindia.interviewsample.ui.dashboard.SearchViewModel
+import `in`.fundsindia.interviewsample.ui.search.SearchViewModel
 import `in`.fundsindia.interviewsample.ui.home.HomeViewModel
 import `in`.fundsindia.interviewsample.utils.ViewModelFactory
 import androidx.lifecycle.ViewModel

@@ -8,10 +8,12 @@ import `in`.fundsindia.interviewsample.R
 import `in`.fundsindia.interviewsample.domain.model.response.Movie
 import `in`.fundsindia.interviewsample.ui.MainActivity
 import `in`.fundsindia.interviewsample.ui.adapter.RvMovieAdapter
+import `in`.fundsindia.interviewsample.utils.NetworkUtils
 import `in`.fundsindia.interviewsample.utils.pagination.PaginationListener
 import `in`.fundsindia.interviewsample.utils.pagination.PaginationListener.Companion.PAGE_START
 import android.content.Context
 import android.util.Log
+import android.widget.TextView
 import androidx.appcompat.widget.Toolbar
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
@@ -23,6 +25,7 @@ class HomeFragment : Fragment() {
     var TAG="HomeFragment"
     lateinit var rvMovies :RecyclerView
     lateinit var tbHome :Toolbar
+    lateinit var tvError: TextView
     lateinit var movieRVlayoutManager: LinearLayoutManager
     private var currentPage: Int = PAGE_START
     private var isLastPageHere = false
@@ -49,6 +52,8 @@ class HomeFragment : Fragment() {
         rvMovies  = root.findViewById(R.id.rvMovieList)
         tbHome  = root.findViewById(R.id.tbHome)
         tbHome.title = "Home"
+        tvError = root.findViewById(R.id.tvError)
+        tvError.visibility = View.GONE
 
         return root
     }
@@ -61,6 +66,9 @@ class HomeFragment : Fragment() {
         homeViewModel.movieListResponse.observe(viewLifecycleOwner,{
 
             var movieList: ArrayList<Movie> = it.results as ArrayList<Movie>
+            tvError.visibility = View.GONE
+            rvMovies.visibility = View.VISIBLE
+
             if (currentPage == 1) {
                 rvMovieAddapter.movieList = movieList
                 homeViewModel.insertMovies(movieList)
@@ -75,9 +83,19 @@ class HomeFragment : Fragment() {
         })
         homeViewModel.error.observe(viewLifecycleOwner,{
             isLoadingHere = false
+            tvError.visibility = View.VISIBLE
+            rvMovies.visibility = View.GONE
+            tvError.text = getString(R.string.errorStateSomethingWentWrong)
 
         })
+        if (context?.let { NetworkUtils.isConnected(it) } == true)
         homeViewModel.getMovies(currentPage)
+        else{
+            tvError.visibility = View.VISIBLE
+            rvMovies.visibility = View.GONE
+            tvError.text = getString(R.string.errorStateOffline)
+
+        }
     }
 
 

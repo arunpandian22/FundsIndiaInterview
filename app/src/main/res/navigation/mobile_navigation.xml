@@ -13,9 +13,9 @@
 
     <fragment
         android:id="@+id/navigation_dashboard"
-        android:name="in.fundsindia.interviewsample.ui.dashboard.SearchFragment"
+        android:name="in.fundsindia.interviewsample.ui.search.SearchFragment"
         android:label="@string/title_dashboard"
-        tools:layout="@layout/fragment_dashboard" />
+        tools:layout="@layout/fragment_search" />
 
 
 </navigation>

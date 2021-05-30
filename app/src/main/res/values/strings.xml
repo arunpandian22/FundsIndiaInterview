@@ -1,6 +1,9 @@
 <resources>
     <string name="app_name">InterviewSample</string>
     <string name="title_home">Home</string>
-    <string name="title_dashboard">Dashboard</string>
-    <string name="title_notifications">Notifications</string>
+    <string name="title_dashboard">Search</string>
+    <string name="emptyStateSearch">Searching movie will be listed here</string>
+    <string name="errorStateOffline">Oops! it seems you are offline</string>
+    <string name="errorStateSomethingWentWrong">Oops! something went wrong</string>
+    <string name="emptyStateNoMovies">it seems there is no movies</string>
 </resources>

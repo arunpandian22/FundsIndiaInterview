@@ -1,13 +1,10 @@
-package  `in`.fundsindia.interviewsample.ui.dashboard
+package  `in`.fundsindia.interviewsample.ui.search
 
 import `in`.fundsindia.interviewsample.domain.model.response.ErrorModel
 import `in`.fundsindia.interviewsample.domain.model.response.Movie
-import `in`.fundsindia.interviewsample.domain.model.response.MovieListResponse
-import `in`.fundsindia.interviewsample.domain.usecase.InsertMovieUseCase
 import `in`.fundsindia.interviewsample.domain.usecase.SearchMoviesUsecase
 import `in`.fundsindia.interviewsample.domain.usecase.base.GetMoviesUsecase
 import android.util.Log
-import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import javax.inject.Inject

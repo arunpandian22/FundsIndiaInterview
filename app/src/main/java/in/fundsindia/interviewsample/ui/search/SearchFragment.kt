@@ -1,5 +1,4 @@
-package `in`.fundsindia.interviewsample.ui.dashboard
-
+package `in`.fundsindia.interviewsample.ui.search
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
@@ -10,7 +9,9 @@ import `in`.fundsindia.interviewsample.domain.model.response.Movie
 import `in`.fundsindia.interviewsample.ui.MainActivity
 import `in`.fundsindia.interviewsample.ui.adapter.RvMovieAdapter
 import android.content.Context
+import android.text.TextUtils
 import android.util.Log
+import android.widget.TextView
 import androidx.appcompat.widget.SearchView
 import androidx.appcompat.widget.Toolbar
 import androidx.recyclerview.widget.LinearLayoutManager
@@ -26,6 +27,7 @@ class SearchFragment : Fragment() {
     lateinit var svMovies: SearchView
     lateinit var tbSearch: Toolbar
     lateinit var rvMovieAddapter: RvMovieAdapter
+    lateinit var tvError: TextView
     lateinit var movieRVlayoutManager: LinearLayoutManager
 
 
@@ -42,10 +44,11 @@ class SearchFragment : Fragment() {
             savedInstanceState: Bundle?
     ): View? {
 
-        val root = inflater.inflate(R.layout.fragment_dashboard, container, false)
+        val root = inflater.inflate(R.layout.fragment_search, container, false)
         rvMovies = root.findViewById<RecyclerView>(R.id.rvMovieList)
         svMovies = root.findViewById<SearchView>(R.id.svMovies)
         tbSearch = root.findViewById<Toolbar>(R.id.tbSearch)
+        tvError = root.findViewById<TextView>(R.id.tvError)
 
         return root
     }
@@ -56,13 +59,33 @@ class SearchFragment : Fragment() {
         Log.d(TAG, "Search viewModel: " + searchViewModel)
         setUpRecyclerView()
         searchViewSetup()
-        searchViewModel.searchMovies("")
+//        searchViewModel.searchMovies("")
+        tvError.text = getString(R.string.emptyStateSearch)
+
+        tvError.visibility = View.VISIBLE
+        rvMovies.visibility = View.GONE
 
         searchViewModel.searchMovieList.observe(viewLifecycleOwner, {
 
-            rvMovieAddapter.movieList = it as ArrayList<Movie>
-            rvMovieAddapter.notifyDataSetChanged()
 
+            if (it.size>0) {
+                tvError.visibility = View.GONE
+                tvError.text = ""
+                rvMovies.visibility = View.VISIBLE
+                rvMovieAddapter.movieList = it as ArrayList<Movie>
+                rvMovieAddapter.notifyDataSetChanged()
+            }else{
+                tvError.visibility = View.VISIBLE
+                tvError.text = getString(R.string.emptyStateNoMovies)
+                rvMovies.visibility = View.GONE
+            }
+
+        })
+
+        searchViewModel.error.observe(viewLifecycleOwner,{
+            tvError.visibility = View.VISIBLE
+            tvError.text = getString(R.string.emptyStateNoMovies)
+            rvMovies.visibility = View.GONE
         })
     }
 
@@ -80,8 +103,13 @@ class SearchFragment : Fragment() {
             override fun onQueryTextChange(searchKeyWord: String?): Boolean {
                 Log.d(TAG, "Text: " + searchKeyWord)
 
-                if (searchKeyWord != null) {
+                if (!TextUtils.isEmpty(searchKeyWord) && searchKeyWord!=null) {
                     searchViewModel.searchMovies(searchKeyWord)
+                }else
+                {
+                    tvError.visibility = View.VISIBLE
+                    tvError.text = getString(R.string.emptyStateSearch)
+                    rvMovies.visibility = View.GONE
                 }
 
                 return true
