@@ -4,11 +4,11 @@ import com.google.gson.annotations.SerializedName
  data class MoviesRequest(
 
 	@field:SerializedName("api_key")
-	val apiKey: String? = null,
+	val apiKey: String,
 
 	@field:SerializedName("language")
-	val language: String? = null,
+	val language: String,
 
 	@field:SerializedName("page")
-	val page: String? = null
+	val page: String
 )

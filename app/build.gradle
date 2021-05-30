@@ -23,6 +23,7 @@ android {
             proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
         }
     }
+
     compileOptions {
         sourceCompatibility JavaVersion.VERSION_1_8
         targetCompatibility JavaVersion.VERSION_1_8
@@ -43,7 +44,11 @@ dependencies {
     implementation 'androidx.navigation:navigation-ui:2.3.5'
     implementation 'androidx.lifecycle:lifecycle-livedata-ktx:2.3.1'
     implementation 'androidx.lifecycle:lifecycle-viewmodel-ktx:2.3.1'
+    implementation 'androidx.palette:palette:1.0.0'
     annotationProcessor "androidx.lifecycle:lifecycle-compiler:2.3.1"
+    implementation 'androidx.palette:palette:1.0.0'
+
+
 
     implementation 'androidx.navigation:navigation-fragment-ktx:2.3.5'
     implementation 'androidx.navigation:navigation-ui-ktx:2.3.5'
@@ -63,8 +68,15 @@ dependencies {
     implementation 'androidx.room:room-rxjava2:2.3.0'
     kapt 'androidx.room:room-compiler:2.3.0'
 
+
+    //glide
+    implementation 'com.github.bumptech.glide:glide:4.11.0'
+
+
     //Coroutines
     implementation 'org.jetbrains.kotlinx:kotlinx-coroutines-android:1.4.3'
+
+
 
     // Debug DB
     debugImplementation 'com.amitshekhar.android:debug-db:1.0.6'

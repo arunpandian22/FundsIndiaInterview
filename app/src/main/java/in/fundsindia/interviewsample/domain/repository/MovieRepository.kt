@@ -1,4 +1,5 @@
 package `in`.fundsindia.interviewsample.domain.repository
+import `in`.fundsindia.interviewsample.domain.model.request.MoviesRequest
 import `in`.fundsindia.interviewsample.domain.model.response.MovieListResponse
 
 /**
@@ -6,5 +7,5 @@ import `in`.fundsindia.interviewsample.domain.model.response.MovieListResponse
  * */
 interface MovieRepository {
 
-  suspend  fun getMovies(): MovieListResponse
+  suspend  fun getMovies(moviesRequest: MoviesRequest): MovieListResponse
 }

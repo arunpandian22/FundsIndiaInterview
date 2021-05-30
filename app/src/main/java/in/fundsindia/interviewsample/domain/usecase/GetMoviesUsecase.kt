@@ -11,6 +11,6 @@ import javax.inject.Inject
 class GetMoviesUsecase@Inject constructor(errorUtil: ErrorMapper, private val movieRepository: MovieRepository) :
     UseCase<MoviesRequest, MovieListResponse>(errorUtil) {
     override suspend fun executeOnBackground(request: MoviesRequest): MovieListResponse {
-        return movieRepository.getMovies()
+        return movieRepository.getMovies(request)
     }
 }
