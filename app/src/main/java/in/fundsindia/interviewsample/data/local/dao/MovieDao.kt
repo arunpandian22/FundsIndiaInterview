@@ -12,12 +12,20 @@ interface MovieDao {
 
 
 
-    @Insert(onConflict = OnConflictStrategy.IGNORE)
-    fun loadAll( movies: MutableList<Movie>)
+    @Insert(onConflict = OnConflictStrategy.REPLACE)
+    fun loadAll(movies: MutableList<Movie>)
 
 
     @Query("SELECT * FROM Movie WHERE title LIKE '%' || :search || '%'")
     fun searchMovies(search: String?): MutableList<Movie>
+
+
+    @Query("SELECT * FROM Movie")
+    fun getAll(): List<Movie>
+
+
+    @Query("SELECT * FROM Movie WHERE id = :movieId ")
+    fun getMovieById(movieId: Int): Movie?
 //
 //    @Delete
 //    fun delete(photo: Movie)

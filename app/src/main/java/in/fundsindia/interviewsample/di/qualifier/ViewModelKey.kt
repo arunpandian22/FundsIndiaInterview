@@ -1,5 +1,4 @@
 package `in`.fundsindia.interviewsample.di.qualifier
-
 import androidx.lifecycle.ViewModel
 import dagger.MapKey
 import kotlin.reflect.KClass
