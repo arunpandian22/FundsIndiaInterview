@@ -6,6 +6,10 @@ import `in`.fundsindia.interviewsample.domain.repository.MovieDBRepository
 import dagger.Provides
 import javax.inject.Singleton
 
+/**
+ * This repository is responsible for
+ * fetching or storing data[movies] from or to DB
+ * */
 class MovieDBRepositoryImpl(
     private val database: AppDatabase
 ) : MovieDBRepository {

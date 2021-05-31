@@ -7,6 +7,10 @@ import `in`.fundsindia.interviewsample.domain.repository.MovieRepository
 import javax.inject.Inject
 
 
+/**
+ * An interactor that calls the actual implementation of GetMovies from the Network (which is injected by DI)
+ * it handles the response that returns data
+ */
 
 class GetMoviesUsecase@Inject constructor(errorUtil: ErrorMapper, private val movieRepository: MovieRepository) :
     UseCase<MoviesRequest, MovieListResponse>(errorUtil) {

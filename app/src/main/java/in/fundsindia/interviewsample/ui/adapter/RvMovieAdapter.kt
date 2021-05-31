@@ -21,7 +21,9 @@ import com.bumptech.glide.load.engine.GlideException
 import com.bumptech.glide.request.RequestListener
 import com.bumptech.glide.request.target.Target
 
-
+/**
+ * An Adapter class for the listing the movies in the recyclerview
+ */
 class RvMovieAdapter(var movieList: ArrayList<Movie>) : RecyclerView.Adapter<RvMovieAdapter.ViewHolder>() {
 
     var colourPalleteUtil: ColourPalleteUtil = ColourPalleteUtil()

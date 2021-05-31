@@ -7,6 +7,11 @@ import kotlin.coroutines.CoroutineContext
 
 typealias CompletionDbBlock<T> = BaseDbUsecase.Request<T>.() -> Unit
 
+
+/**
+ * This abstract class is shared among several closely related Room Databse UseCase classes
+ * that classes that extend this abstract class to use common methods & fields
+ **/
 abstract  class BaseDbUsecase <R,T> {
 
 

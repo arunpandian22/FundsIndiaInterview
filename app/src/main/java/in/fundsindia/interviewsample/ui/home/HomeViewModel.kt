@@ -11,6 +11,9 @@ import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import javax.inject.Inject
 
+/**
+ * A viewmodel class for the having business logic and data fetching methods for the HomeFragment
+ */
 class HomeViewModel @Inject constructor(
     private val movieUseCase: GetMoviesUsecase,private val insertMovieUseCase: InsertMovieUseCase
 ): ViewModel() {

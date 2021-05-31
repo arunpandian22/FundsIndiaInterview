@@ -23,6 +23,9 @@ import java.util.concurrent.TimeUnit
 import javax.inject.Singleton
 import javax.net.ssl.*
 
+/**
+ * A Dagger module class to  define the injecting objects related to network call
+ */
 @Module
 class NetworkModule {
 
@@ -52,51 +55,6 @@ class NetworkModule {
         val interceptor = HttpLoggingInterceptor()
         interceptor.level = HttpLoggingInterceptor.Level.HEADERS
         interceptor.level = HttpLoggingInterceptor.Level.BODY
-//        client.addInterceptor {
-//            val original = it.request()
-//                val builder = original.newBuilder()
-//                    .header("sp_customer_type", "driver")
-//                     .method(original.method, original.body)
-//            if(!TextUtils.isEmpty(PreferenceUtils.getToken())) {
-//                builder.header("Authorization",PreferenceUtils.getToken())
-//            }
-//
-//          val  newRequset = builder.build()
-////            var sslSocketFactory=getUnsafeOkHttpClient()
-////            if (sslSocketFactory!=null)
-////                client.sslSocketFactory(sslSocketFactory)
-////            client.hostnameVerifier(object : HostnameVerifier{
-////               override fun verify(hostname: String?, session: SSLSession?): Boolean {
-////                   Log.d("Network module",""+hostname)
-////                    return true
-////                }
-////            })
-////
-//            // try the request
-//            // try the request
-//            var response: Response = it.proceed(newRequset)
-//
-//            Log.d("CloudRepository", "Request is not successful "+response.isSuccessful +" trycount: "+tryCount +" response cide: "+ response.code)
-//
-//            while (!response.isSuccessful && response.code.equals(504) && tryCount < 3) {
-//                tryCount++
-//
-//                Log.d("CloudRepository", "Request is not successful inside "+response.isSuccessful +" trycount: "+tryCount)
-//
-//                // retry the request
-//                response = it.proceed(newRequset)
-//
-//            }
-//
-//            return@addInterceptor response
-//
-//
-////            return@addInterceptor response
-////            val request = builder.build()
-////                return@addInterceptor it.proceed(request)
-//        }
-
-
         client.addNetworkInterceptor(interceptor)
         return client.build()
     }

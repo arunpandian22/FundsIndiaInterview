@@ -98,7 +98,9 @@ class HomeFragment : Fragment() {
         }
     }
 
-
+    /**
+     * A method to setup a recyclerview
+     */
     fun setUpRecyclerView()
     {
         movieRVlayoutManager = LinearLayoutManager(context, RecyclerView.VERTICAL, false)

@@ -2,14 +2,15 @@ package `in`.fundsindia.interviewsample.ui
 import `in`.fundsindia.interviewsample.FundsIndiaApplication
 import `in`.fundsindia.interviewsample.R
 import android.os.Bundle
-import android.util.Log
 import com.google.android.material.bottomnavigation.BottomNavigationView
 import androidx.appcompat.app.AppCompatActivity
 import androidx.navigation.findNavController
 import androidx.navigation.ui.setupWithNavController
-import com.amitshekhar.DebugDB
 import javax.inject.Inject
 
+/**
+ * An Activity class for the Home screen with two fragments
+ */
 class MainActivity : AppCompatActivity() {
 
     val TAG= "MainActivity"
@@ -31,18 +32,13 @@ class MainActivity : AppCompatActivity() {
 
 
 
-        Log.d(TAG,"mainViewModel "+mainViewModel+ " Debug DB  "+DebugDB.getAddressLog())
+//        Log.d(TAG,"mainViewModel "+mainViewModel+ " Debug DB  "+DebugDB.getAddressLog())
 
         val navView: BottomNavigationView = findViewById(R.id.nav_view)
 
 
         val navController = findNavController(R.id.nav_host_fragment)
-        // Passing each menu ID as a set of Ids because each
-        // menu should be considered as top level destinations.
-//        val appBarConfiguration = AppBarConfiguration(setOf(
-//            R.id.navigation_home, R.id.navigation_dashboard
-//        ))
-//        setupActionBarWithNavController(navController, appBarConfiguration)
+
         navView.setupWithNavController(navController)
     }
 }

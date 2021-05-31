@@ -6,7 +6,7 @@ import `in`.fundsindia.interviewsample.domain.repository.MovieRepository
 
 /**
  * This repository is responsible for
- * fetching data[movies] from server or db
+ * fetching data[movies] from network call
  * */
 class MovieRemoteRepositoryImpl(
     private val apiService: ApiService

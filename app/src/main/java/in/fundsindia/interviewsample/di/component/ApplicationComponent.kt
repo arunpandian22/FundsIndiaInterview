@@ -8,9 +8,13 @@ import dagger.BindsInstance
 import dagger.Component
 import javax.inject.Singleton
 
+
+
+/**
+ * An Definition of a Dagger component that adds info from the different activity module to the graph
+ */
 @Singleton
 @Component( modules=  [SubComponents::class,NetworkModule::class, DatabaseModule::class] )
-
 interface ApplicationComponent {
 
     // Factory to create instances of the AppComponent

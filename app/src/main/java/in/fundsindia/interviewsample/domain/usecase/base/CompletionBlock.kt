@@ -8,6 +8,11 @@ import kotlin.coroutines.CoroutineContext
 
 typealias CompletionBlock<T> = UseCase.Request<T>.() -> Unit
 
+/**
+ * This abstract class is shared among several closely related Network call UseCase classes
+ * that classes that extend this abstract class to use common methods & fields
+ **/
+
 abstract class UseCase<R,T>(private val errorUtil: ErrorMapper) {
 
     private var parentJob: Job?=null

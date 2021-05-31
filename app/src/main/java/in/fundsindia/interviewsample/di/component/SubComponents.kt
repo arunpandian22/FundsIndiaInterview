@@ -7,6 +7,11 @@ import dagger.Provides
 
 
 
+//
+/**
+ * An Definition of a Dagger component that adds info from the different  viewmodel module to the graph
+ * here only one activity so MainActivityComponent only added
+ */
 @Module(subcomponents = [MainActivityComponent::class])
 class SubComponents
 {

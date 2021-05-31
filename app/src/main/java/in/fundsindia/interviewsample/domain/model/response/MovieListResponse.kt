@@ -2,6 +2,9 @@ package `in`.fundsindia.interviewsample.domain.model.response
 
 import com.google.gson.annotations.SerializedName
 
+/**
+ * A data class used to parse the response from the Network call
+ */
 data class MovieListResponse(
 
 	@field:SerializedName("page")

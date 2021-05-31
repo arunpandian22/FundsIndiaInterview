@@ -1,6 +1,9 @@
  package `in`.fundsindia.interviewsample.domain.model.request
 import com.google.gson.annotations.SerializedName
 
+ /**
+  * a data class for the having network request data
+  */
  data class MoviesRequest(
 
 	@field:SerializedName("api_key")

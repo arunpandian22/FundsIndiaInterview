@@ -17,6 +17,10 @@ import dagger.Module
 import javax.inject.Singleton
 
 
+/**
+ * A Dagger module class to  define the injecting objects related to Database
+ */
+
 @Module
 class DatabaseModule {
 
